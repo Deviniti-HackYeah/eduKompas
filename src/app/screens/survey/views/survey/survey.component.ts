@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'rtm-survey',
@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./survey.component.scss'],
 })
 export class SurveyComponent {
-  public stepNumber: number = 2;
+  public surveyNumber: number = 2;
 
-  public goToNextStep(): void {
-    this.stepNumber++;
+  @Output() public goToBoard = new EventEmitter<void>();
+
+  public goToNextSurvey(): void {
+    this.surveyNumber++;
   }
 }

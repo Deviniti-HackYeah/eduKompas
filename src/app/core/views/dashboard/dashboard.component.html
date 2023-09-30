@@ -1,5 +1,5 @@
 <ng-container [ngSwitch]="appState">
   <rtm-initial *ngSwitchCase="'initial'" (goToSurvey)="gotToSurvey()" />
-  <rtm-survey *ngSwitchCase="'survey'" />
+  <rtm-survey *ngSwitchCase="'survey'" (goToBoard)="goToBoard()" />
   <rtm-board *ngSwitchCase="'board'" />
 </ng-container>

@@ -9,6 +9,24 @@
       Ja jestem EduKajtek. Potrzebuję od Ciebie kilku informacji. Pomożesz mi?
     </p>
 
-    <rtm-slider-option title="Czy wiesz jaki kierunek studiów wybrać?" />
+    <ng-container *ngFor="let item of STEPS; let i = index">
+      <rtm-slider-option
+        (valueChange)="onValueChange(item.key, $event, i)"
+        [completed]="stepCounter > i"
+        *ngIf="stepCounter > i - 1"
+        [title]="item.label"
+      />
+    </ng-container>
+
+    <p-button
+      *ngIf="stepCounter === STEPS.length"
+      (onClick)="goToNextStep.emit()"
+      styleClass="w-1/2 mt-12"
+      label="Następny krok"
+      [style]="{
+        background: 'linear-gradient(91deg, #001234 1.22%, #0048D2 100%)',
+        border: 'none'
+      }"
+    />
   </div>
 </div>

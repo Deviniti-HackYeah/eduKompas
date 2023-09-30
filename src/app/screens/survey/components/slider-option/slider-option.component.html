@@ -1,4 +1,8 @@
-<p class="text-lg font-bold text-gray-700">{{ title }}</p>
+<div class="flex items-center gap-3">
+  <!-- eslint-disable-next-line tailwindcss/no-custom-classname -->
+  <i class="pi pi-check-circle text-xl text-green-600" *ngIf="completed"></i>
+  <p class="text-lg font-bold text-gray-700">{{ title }}</p>
+</div>
 
 <div class="mt-7" *ngIf="!completed">
   <div class="mb-2 flex justify-center text-xs font-light">Przeciągnij</div>

@@ -1,5 +1,5 @@
 <ngx-slider
-  (valueChange)="valueChange.emit($event)"
+  (userChangeEnd)="valueChange.emit($event.value)"
   [options]="SLIDER_OPTIONS"
   [value]="value"
 ></ngx-slider>
