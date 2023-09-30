@@ -1,12 +1,13 @@
-<div
-  class="flex w-3/4 gap-2"
-  [class.flex-row-reverse]="direction === 'right'"
->
-  <img [src]="bubbleAvatar" class="h-12"/>
-  <div
-    [ngClass]="direction === 'left' ? 'text-left ml-3 msg-l' : 'text-right mr-3 msg-r'"
-    [class]="'message w-full rounded-2xl bg-gray-200 px-4 py-3 ' + bubbleBgColor"
-  >
-    {{ message }}
-  </div>
+<div class="flex w-3/4 gap-2" [class.flex-row-reverse]="direction === 'right'">
+  <img [src]="bubbleAvatar" class="h-12" />
+  <p
+    [ngClass]="
+      direction === 'left' ? 'msg-l ml-3 text-left' : 'msg-r mr-3 text-right'
+    "
+    [class]="
+      'message w-full rounded-2xl bg-gray-200 px-4 py-3 ' + bubbleBgColor
+    "
+    rtmTypewrite
+    [text]="message || ''"
+  ></p>
 </div>

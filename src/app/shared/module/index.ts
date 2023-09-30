@@ -1,9 +1,10 @@
+import { VarDirective, TypewriteDirective } from '@shared/directives';
 import { ButtonDirective, InputDirective } from '@shared/components';
 import { LocalizedDatePipe, TruncatePipe } from '@shared/pipes';
 import { TranslateModule } from '@ngx-translate/core';
-import { VarDirective } from '@shared/directives';
 
 export const SHARED_DIRECTIVES = [
+  TypewriteDirective,
   ButtonDirective,
   InputDirective,
   VarDirective,

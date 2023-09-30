@@ -1,5 +1,5 @@
 import { ChatService } from '@core/services/chat.service';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Component, HostBinding } from '@angular/core';
 
 @Component({
@@ -10,7 +10,10 @@ import { Component, HostBinding } from '@angular/core';
 export class ChatComponent {
   constructor(private readonly _chatService: ChatService) {}
 
-  public input = new FormControl('', Validators.required);
+  public chatForm = new FormGroup({
+    input: new FormControl(''),
+  });
+
   public readonly messages = this._chatService.chat;
 
   @HostBinding('class') public get classes(): string {
@@ -18,11 +21,9 @@ export class ChatComponent {
   }
 
   public sendMessage(): void {
-    if (this.input.invalid || !this.input.value) {
-      return;
-    }
-
-    this._chatService.postMessage(this.input.value);
-    this.input.reset();
+    const value = this.chatForm.get('input')?.value;
+    if (!value) return;
+    this._chatService.postMessage(value);
+    this.chatForm.reset();
   }
 }

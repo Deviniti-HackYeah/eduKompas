@@ -1,6 +1,6 @@
 export const environment = {
   app_url: '/',
-  api: 'http://localhost:8080/api',
+  api: 'http://65.21.6.112:3999',
   production: false,
   build: 'dev',
 };
