@@ -12,6 +12,8 @@ export const EducationType = [
   'Liceum',
   'Studia I stopnia',
   'Studia II stopnia',
+  'Studia III stopnia',
+  'Studia podyplomowe',
   'Inne',
 ] as const;
 

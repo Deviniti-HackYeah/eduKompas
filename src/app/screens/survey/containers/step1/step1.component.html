@@ -22,7 +22,7 @@
     <h4 class="mb-3 font-medium">Kim jesteś?</h4>
 
     <div class="mb-5 flex flex-wrap gap-3">
-      <div class="flex items-center" *ngFor="let type of UserTypeOptions">
+      <div class="flex items-center" *ngFor="let type of USER_TYPE">
         <p-radioButton
           formControlName="userType"
           [inputId]="type"
@@ -38,7 +38,7 @@
 
     <p-dropdown
       formControlName="educationType"
-      [options]="EducationTypeOptions"
+      [options]="EDUCATION_TYPE"
       styleClass="w-full mb-5"
       placeholder="Wybierz"
       optionLabel="label"

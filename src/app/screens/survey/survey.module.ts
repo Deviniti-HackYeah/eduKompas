@@ -1,3 +1,5 @@
+import { SliderOptionComponent } from './components/slider-option/slider-option.component';
+import { SliderComponent } from './components/slider/slider.component';
 import { Step1Component } from './containers/step1/step1.component';
 import { Step2Component } from './containers/step2/step2.component';
 import { SurveyComponent } from './views/survey/survey.component';
@@ -6,6 +8,7 @@ import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import { NgxSliderModule } from 'ngx-slider-v2';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { NgModule } from '@angular/core';
@@ -17,12 +20,13 @@ const COMPONENTS = [SurveyComponent, Step1Component, Step2Component];
     ReactiveFormsModule,
     RadioButtonModule,
     InputTextModule,
+    NgxSliderModule,
     DropdownModule,
     SharedModule,
     CommonModule,
     ButtonModule,
   ],
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, SliderComponent, SliderOptionComponent],
   exports: [...COMPONENTS],
 })
 export class SurveyModule {}

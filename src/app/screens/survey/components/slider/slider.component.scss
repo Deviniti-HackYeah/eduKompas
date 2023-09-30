@@ -1,0 +1,11 @@
+:host {
+  ::ng-deep {
+    .ngx-slider .ngx-slider-pointer {
+      background-color: #0331a6;
+    }
+
+    .ngx-slider .ngx-slider-pointer.ngx-slider-active:after {
+      background-color: #fff;
+    }
+  }
+}

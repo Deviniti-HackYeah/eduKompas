@@ -25,6 +25,7 @@
     "class-variance-authority": "^0.7.0",
     "echarts": "^5.4.3",
     "ngx-echarts": "^16.0.0",
+    "ngx-slider-v2": "^16.0.0",
     "ngx-toastr": "^17.0.2",
     "primeicons": "^6.0.1",
     "primeng": "^16.4.1",

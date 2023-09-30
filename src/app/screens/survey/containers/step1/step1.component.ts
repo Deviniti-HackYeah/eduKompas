@@ -10,8 +10,8 @@ import { Survey } from '@shared/models';
   styleUrls: ['./step1.component.scss'],
 })
 export class Step1Component {
-  public readonly UserTypeOptions = UserType;
-  public readonly EducationTypeOptions = EducationType.map((t) => ({
+  public readonly USER_TYPE = UserType;
+  public readonly EDUCATION_TYPE = EducationType.map((t) => ({
     label: t,
     value: t,
   }));

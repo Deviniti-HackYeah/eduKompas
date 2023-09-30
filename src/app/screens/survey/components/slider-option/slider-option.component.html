@@ -1,0 +1,12 @@
+<p class="text-lg font-bold text-gray-700">{{ title }}</p>
+
+<div class="mt-7" *ngIf="!completed">
+  <div class="mb-2 flex justify-center text-xs font-light">Przeciągnij</div>
+
+  <rtm-slider (valueChange)="valueChange.emit($event)" />
+
+  <div class="flex justify-between font-light">
+    <p>Zdecydowanie nie</p>
+    <p>Zdecydowanie tak</p>
+  </div>
+</div>
