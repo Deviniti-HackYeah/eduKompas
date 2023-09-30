@@ -1,18 +1,30 @@
+import {
+  AfterViewChecked,
+  HostBinding,
+  Component,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { ChatService } from '@core/services/chat.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'rtm-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss'],
 })
-export class ChatComponent {
+export class ChatComponent implements AfterViewChecked {
+  @ViewChild('window') public chatWindow?: ElementRef<HTMLDivElement>;
+
   constructor(private readonly _chatService: ChatService) {
     // TODO:
     this._chatService.postMessage(
       'Nazywam się Maciek i interesuję się programowaniem. Chciałbym studiować coś związanego z IT.',
     );
+  }
+
+  public ngAfterViewChecked(): void {
+    this._scrollToBottom();
   }
 
   public chatForm = new FormGroup({
@@ -31,5 +43,10 @@ export class ChatComponent {
     if (!value) return;
     this._chatService.postMessage(value);
     this.chatForm.reset();
+  }
+
+  private _scrollToBottom(): void {
+    const element = this.chatWindow?.nativeElement;
+    element!.scrollTop = element!.scrollHeight;
   }
 }
