@@ -34,7 +34,7 @@ export class TypewriteDirective implements OnInit, OnDestroy {
         } else {
           this.clearInterval();
         }
-      }, 20);
+      }, 30);
     }
   }
 

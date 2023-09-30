@@ -21,15 +21,9 @@ const inputVariants = cva(
       mode: {
         default:
           'border-gray-300 focus:border-indigo-500 focus:ring-indigo-500',
-        secondary:
-          'border-gray-400 focus:border-indigo-500 focus:ring-indigo-500',
-        outline:
-          'border-transparent focus:border-indigo-500 focus:ring-indigo-500',
       },
       size: {
-        default: 'h-10 px-3',
-        sm: 'h-9 rounded-md px-2',
-        lg: 'h-12 rounded-md px-4 text-base',
+        default: 'p-3',
       },
       error: {
         true: 'border-red-500 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500',
@@ -48,7 +42,7 @@ const inputVariants = cva(
 type Variant = VariantProps<typeof inputVariants>;
 
 @Directive({
-  selector: 'input[rtmInput]',
+  selector: 'input[rtmInput], textarea[rtmInput]',
 })
 export class InputDirective implements DoCheck, AfterViewInit {
   @Input({ transform: booleanAttribute }) public disabled: Variant['disabled'];

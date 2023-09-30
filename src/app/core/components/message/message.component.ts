@@ -16,10 +16,10 @@ export class MessageComponent {
 
   public get bubbleBgColor(): string {
     return this.type === 'USER'
-      ? 'bg-yellow-100 border-yellow-100'
+      ? 'bg-gray-200 border-gray-200'
       : this.type === 'KARA'
-      ? 'bg-red-100 border-red-100'
-      : 'bg-blue-500 border-blue-100';
+      ? 'bg-kara border-kara'
+      : 'bg-kajtek border-kajtek';
   }
 
   public get bubbleAvatar(): string {

@@ -8,12 +8,18 @@ import { Component, HostBinding } from '@angular/core';
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent {
-  constructor(private readonly _chatService: ChatService) {}
+  constructor(private readonly _chatService: ChatService) {
+    // TODO:
+    this._chatService.postMessage(
+      'Nazywam się Maciek i interesuję się programowaniem. Chciałbym studiować coś związanego z IT.',
+    );
+  }
 
   public chatForm = new FormGroup({
     input: new FormControl(''),
   });
 
+  public readonly isLoading = this._chatService.isLoading;
   public readonly messages = this._chatService.chat;
 
   @HostBinding('class') public get classes(): string {

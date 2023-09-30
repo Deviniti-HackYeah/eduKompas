@@ -1,22 +1,23 @@
 <div class="my-2 flex h-full flex-col gap-4 overflow-auto px-2">
-  <rtm-message message="Hey" type="KAJTEK" />
-  <rtm-message message="Hey" type="KARA" />
-  <rtm-message message="Hey" type="USER" />
-  <rtm-message
-    message="Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum "
-    type="KARA"
-  />
   <rtm-message
     *ngFor="let m of messages()"
     [message]="m.message"
     [type]="m.bot"
   />
+  <div class="mx-auto my-2 block" *ngIf="isLoading()">
+    <rtm-spinner />
+  </div>
 </div>
 <form
-  class="flex gap-4 align-middle"
+  class="flex h-16 gap-4 align-middle"
   (submit)="sendMessage()"
   [formGroup]="chatForm"
 >
-  <input rtmInput class="w-full" formControlName="input" />
+  <textarea
+    (keydown.enter)="$event.preventDefault(); sendMessage()"
+    formControlName="input"
+    class="w-full"
+    rtmInput
+  ></textarea>
   <button rtmButton [size]="'icon'" type="submit">SEND</button>
 </form>

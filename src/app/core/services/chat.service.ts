@@ -8,24 +8,40 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class ChatService {
   public readonly chat = signal<ChatMessage[]>([]);
+  public readonly isLoading = signal<boolean>(false);
   private readonly _chatId = uuidv4();
 
   constructor(private readonly _repo: ChatRepository) {}
 
   public postMessage(value: string): void {
-    this.chat.update((chats) => [
-      ...chats,
-      {
-        bot: 'USER',
-        message: value,
-        date: new Date(),
-      },
-    ]);
+    this._updateChatMessages({ bot: 'USER', message: value, date: new Date() });
 
-    this._repo
-      .postMessage({ chatId: this._chatId, message: value })
-      .subscribe((response) => {
-        this.chat.update((chats) => [...chats, ...response.chats]);
+    this.isLoading.update(() => true);
+
+    this._repo.postMessage({ chatId: this._chatId, message: value }).subscribe({
+      next: (response) => {
+        this._updateChatMessages(response.chats);
+        this.isLoading.update(() => false);
+      },
+      error: () => {
+        this.isLoading.update(() => false);
+      },
+    });
+  }
+
+  private _updateChatMessages(messages: ChatMessage[] | ChatMessage): void {
+    if (Array.isArray(messages)) {
+      messages.forEach((message, index) => {
+        setTimeout(() => {
+          this.chat.update((chats) => {
+            return [...chats, message];
+          });
+        }, index * 2500);
       });
+      return;
+    }
+    this.chat.update((chats) => {
+      return [...chats, messages];
+    });
   }
 }
