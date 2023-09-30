@@ -1,6 +1,7 @@
 import { SurveyRepository } from '@api/survey/survey.repository';
 import { ChatRepository } from '@api/chat/chat.repository';
 import { ChatMessage, Survey } from '@shared/models';
+import { mockedAnswerBySurvey } from '@shared/utils';
 import { Injectable, signal } from '@angular/core';
 import { SPEECH_SPEED } from '@core/constant';
 import { v4 as uuidv4 } from 'uuid';
@@ -13,6 +14,7 @@ export class ChatService {
   public readonly isLoading = signal<boolean>(false);
   public readonly chat = signal<ChatMessage[]>([]);
 
+  private _initialMessageSent = false;
   private readonly _chatId = uuidv4();
 
   constructor(
@@ -20,10 +22,28 @@ export class ChatService {
     private readonly _chatRepo: ChatRepository,
   ) {}
 
-  public postSurvey(): void {
+  public postInitialMessage(): void {
+    const message: ChatMessage = {
+      message: mockedAnswerBySurvey(this.surveyData().greatestSatisfaction),
+      date: new Date(),
+      bot: 'KARA',
+    };
+    this._updateChatMessages(message);
+  }
+
+  public postMessage(value: string): void {
+    if (!this._initialMessageSent) {
+      this._postSurvey(value);
+      this._initialMessageSent = true;
+      return;
+    }
+
+    this._updateChatMessages({ bot: 'USER', message: value, date: new Date() });
+
     this.isLoading.update(() => true);
-    this._surveyRepo
-      .postSurvey({ ...this.surveyData(), chatId: this._chatId })
+
+    this._chatRepo
+      .postMessage({ chatId: this._chatId, message: value })
       .subscribe({
         next: (response) => {
           this._updateChatMessages(response.chats);
@@ -35,13 +55,15 @@ export class ChatService {
       });
   }
 
-  public postMessage(value: string): void {
-    this._updateChatMessages({ bot: 'USER', message: value, date: new Date() });
-
+  private _postSurvey(strengths: string): void {
+    this._updateChatMessages({
+      bot: 'USER',
+      message: strengths,
+      date: new Date(),
+    });
     this.isLoading.update(() => true);
-
-    this._chatRepo
-      .postMessage({ chatId: this._chatId, message: value })
+    this._surveyRepo
+      .postSurvey({ ...this.surveyData(), strengths, chatId: this._chatId })
       .subscribe({
         next: (response) => {
           this._updateChatMessages(response.chats);

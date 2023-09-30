@@ -23,6 +23,6 @@ export const GreatestSatisfaction = [
   'Kontakt z innymi ludźmi: długie rozmowy, wymiana doświadczeń i opinii',
   'Analizowanie danych, wyciąganie wniosków i tworzenie ciekawych rozwiązań',
   'Zajęcia kreatywne: rysowanie, malowanie, komponowanie',
-];
+] as const;
 
 export type GreatestSatisfaction = (typeof GreatestSatisfaction)[number];

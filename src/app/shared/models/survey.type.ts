@@ -9,6 +9,7 @@ export interface Survey extends SurveySliders {
   educationType: EducationType;
   city: string;
   greatestSatisfaction: GreatestSatisfaction;
+  strengths: string;
 }
 
 export interface SurveySliders {

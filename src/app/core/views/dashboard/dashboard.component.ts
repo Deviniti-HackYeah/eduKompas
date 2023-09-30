@@ -16,7 +16,7 @@ export class DashboardComponent {
   constructor(private readonly _chatService: ChatService) {}
 
   public goToBoard(): void {
-    this._chatService.postSurvey();
+    this._chatService.postInitialMessage();
     this.appState = 'board';
   }
 }
