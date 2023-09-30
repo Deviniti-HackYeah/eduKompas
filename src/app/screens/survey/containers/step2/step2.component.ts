@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostBinding, Output } from '@angular/core';
-import { DataService } from '@core/services/data.service';
+import { ChatService } from '@core/services/chat.service';
 import { SurveySliders } from '@shared/models';
 
 @Component({
@@ -34,7 +34,7 @@ export class Step2Component {
     },
   ];
 
-  constructor(private readonly _dataService: DataService) {}
+  constructor(private readonly _chatService: ChatService) {}
 
   @Output() public goToNextStep = new EventEmitter<void>();
   @Output() public goToChat = new EventEmitter<void>();
@@ -48,7 +48,7 @@ export class Step2Component {
     value: number,
     idx: number,
   ): void {
-    this._dataService.surveyData.update((prev) => ({
+    this._chatService.surveyData.update((prev) => ({
       ...prev,
       [key]: value,
     }));

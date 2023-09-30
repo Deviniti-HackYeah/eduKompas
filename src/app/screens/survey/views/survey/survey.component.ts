@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./survey.component.scss'],
 })
 export class SurveyComponent {
-  public surveyNumber: number = 2;
+  public surveyNumber: number = 0;
 
   @Output() public goToBoard = new EventEmitter<void>();
 

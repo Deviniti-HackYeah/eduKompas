@@ -1,6 +1,6 @@
 import { Component, EventEmitter, HostBinding, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DataService } from '@core/services/data.service';
+import { ChatService } from '@core/services/chat.service';
 import { GreatestSatisfaction } from '@shared/constant';
 import { Survey } from '@shared/models';
 
@@ -22,14 +22,14 @@ export class Step3Component {
     greatestSatisfaction: new FormControl(undefined, Validators.required),
   });
 
-  constructor(private readonly _dataService: DataService) {}
+  constructor(private readonly _chatService: ChatService) {}
 
   public onSubmit(): void {
     if (!this.step3Form.valid) {
       return;
     }
     const formData = this.step3Form.value as unknown as Partial<Survey>;
-    this._dataService.surveyData.update((data: Partial<Survey>) => {
+    this._chatService.surveyData.update((data: Partial<Survey>) => {
       return { ...data, ...formData };
     });
     this.goToChat.emit();

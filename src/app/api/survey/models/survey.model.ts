@@ -1,8 +1,7 @@
-import { Chat } from '@shared/models';
+import { Chat, Survey } from '@shared/models';
 
-export interface SurveyRequest {
-  message: string;
+export type SurveyRequest = Survey & {
   chatId: string;
-}
+};
 
 export type SurveyResponse = Chat;

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, HostBinding, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EducationType, UserType } from '@shared/constant';
-import { DataService } from '@core/services/data.service';
+import { ChatService } from '@core/services/chat.service';
 import { Survey } from '@shared/models';
 
 @Component({
@@ -28,14 +28,14 @@ export class Step1Component {
     city: new FormControl('', Validators.required),
   });
 
-  constructor(private readonly _dataService: DataService) {}
+  constructor(private readonly _chatService: ChatService) {}
 
   public onSubmit(): void {
     if (!this.step1Form.valid) {
       return;
     }
     const formData = this.step1Form.value as unknown as Partial<Survey>;
-    this._dataService.surveyData.update((data: Partial<Survey>) => {
+    this._chatService.surveyData.update((data: Partial<Survey>) => {
       return { ...data, ...formData };
     });
     this.goToNextStep.emit();

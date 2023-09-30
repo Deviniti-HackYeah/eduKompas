@@ -1,33 +1,56 @@
+import { SurveyRepository } from '@api/survey/survey.repository';
 import { ChatRepository } from '@api/chat/chat.repository';
+import { ChatMessage, Survey } from '@shared/models';
 import { Injectable, signal } from '@angular/core';
 import { SPEECH_SPEED } from '@core/constant';
-import { ChatMessage } from '@shared/models';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChatService {
-  public readonly chat = signal<ChatMessage[]>([]);
+  public readonly surveyData = signal<Partial<Survey>>({});
   public readonly isLoading = signal<boolean>(false);
+  public readonly chat = signal<ChatMessage[]>([]);
+
   private readonly _chatId = uuidv4();
 
-  constructor(private readonly _repo: ChatRepository) {}
+  constructor(
+    private readonly _surveyRepo: SurveyRepository,
+    private readonly _chatRepo: ChatRepository,
+  ) {}
+
+  public postSurvey(): void {
+    this.isLoading.update(() => true);
+    this._surveyRepo
+      .postSurvey({ ...this.surveyData(), chatId: this._chatId })
+      .subscribe({
+        next: (response) => {
+          this._updateChatMessages(response.chats);
+          this.isLoading.update(() => false);
+        },
+        error: () => {
+          this.isLoading.update(() => false);
+        },
+      });
+  }
 
   public postMessage(value: string): void {
     this._updateChatMessages({ bot: 'USER', message: value, date: new Date() });
 
     this.isLoading.update(() => true);
 
-    this._repo.postMessage({ chatId: this._chatId, message: value }).subscribe({
-      next: (response) => {
-        this._updateChatMessages(response.chats);
-        this.isLoading.update(() => false);
-      },
-      error: () => {
-        this.isLoading.update(() => false);
-      },
-    });
+    this._chatRepo
+      .postMessage({ chatId: this._chatId, message: value })
+      .subscribe({
+        next: (response) => {
+          this._updateChatMessages(response.chats);
+          this.isLoading.update(() => false);
+        },
+        error: () => {
+          this.isLoading.update(() => false);
+        },
+      });
   }
 
   private _updateChatMessages(messages: ChatMessage[] | ChatMessage): void {

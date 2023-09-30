@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class ChatRepository {
+export class SurveyRepository {
   constructor(private readonly _http: HttpClient) {}
 
-  public postSurvey(data: SurveyRequest): Observable<SurveyResponse> {
-    return this._http.post<SurveyResponse>(`${API_URL}/chat`, data);
+  public postSurvey(data: Partial<SurveyRequest>): Observable<SurveyResponse> {
+    return this._http.post<SurveyResponse>(`${API_URL}/survey`, data);
   }
 }

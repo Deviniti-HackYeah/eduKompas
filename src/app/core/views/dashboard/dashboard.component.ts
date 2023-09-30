@@ -1,3 +1,4 @@
+import { ChatService } from '@core/services/chat.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,13 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  public appState: 'initial' | 'survey' | 'board' = 'survey';
+  public appState: 'initial' | 'survey' | 'board' = 'initial';
 
   public gotToSurvey(): void {
     this.appState = 'survey';
   }
 
+  constructor(private readonly _chatService: ChatService) {}
+
   public goToBoard(): void {
+    this._chatService.postSurvey();
     this.appState = 'board';
   }
 }
