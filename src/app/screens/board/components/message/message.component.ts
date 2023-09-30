@@ -17,12 +17,12 @@ export class MessageComponent {
     return this.type === 'USER' ? 'right' : 'left';
   }
 
-  public get bubbleBgColor(): string {
+  public get bubbleColors(): string {
     return this.type === 'USER'
-      ? 'bg-gray-200 border-gray-200'
+      ? 'bg-userbg border-userborder text-usertext'
       : this.type === 'KARA'
-      ? 'bg-kara border-kara'
-      : 'bg-kajtek border-kajtek';
+      ? 'bg-karabg border-karaborder text-karatext'
+      : 'bg-kajtekbg border-kajtekborder text-kajtektext';
   }
 
   public get bubbleAvatar(): string {

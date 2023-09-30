@@ -4,7 +4,9 @@ import { ChatComponent } from './containers/chat/chat.component';
 import { BoardComponent } from './views/board/board.component';
 import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
 import { NgModule } from '@angular/core';
 
 const COMPONENTS = [
@@ -15,7 +17,13 @@ const COMPONENTS = [
 ];
 
 @NgModule({
-  imports: [CommonModule, SharedModule, ReactiveFormsModule],
+  imports: [
+    ReactiveFormsModule,
+    InputTextModule,
+    SharedModule,
+    CommonModule,
+    ButtonModule,
+  ],
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS],
 })

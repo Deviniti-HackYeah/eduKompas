@@ -9,15 +9,20 @@
   </div>
 </div>
 <form
-  class="flex h-16 gap-4 align-middle"
+  class="flex gap-4 align-middle"
   (submit)="sendMessage()"
   [formGroup]="chatForm"
 >
-  <textarea
-    (keydown.enter)="$event.preventDefault(); sendMessage()"
+  <input
+    placeholder="Wpisz treść wiadomości"
     formControlName="input"
     class="w-full"
-    rtmInput
-  ></textarea>
-  <button rtmButton [size]="'icon'" type="submit">SEND</button>
+    pInputText
+    type="text"
+  />
+  <p-button
+    [style]="{ background: '#0331A6' }"
+    icon="pi pi-send"
+    type="submit"
+  ></p-button>
 </form>

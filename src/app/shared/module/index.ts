@@ -1,18 +1,9 @@
-import {
-  SpinnerComponent,
-  ButtonDirective,
-  InputDirective,
-} from '@shared/components';
 import { VarDirective, TypewriteDirective } from '@shared/directives';
 import { LocalizedDatePipe, TruncatePipe } from '@shared/pipes';
 import { TranslateModule } from '@ngx-translate/core';
+import { SpinnerComponent } from '@shared/components';
 
-export const SHARED_DIRECTIVES = [
-  TypewriteDirective,
-  ButtonDirective,
-  InputDirective,
-  VarDirective,
-];
+export const SHARED_DIRECTIVES = [TypewriteDirective, VarDirective];
 
 export const SHARED_PIPES = [TruncatePipe, LocalizedDatePipe];
 
