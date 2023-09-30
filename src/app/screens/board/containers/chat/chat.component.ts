@@ -16,12 +16,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ChatComponent implements AfterViewChecked {
   @ViewChild('window') public chatWindow?: ElementRef<HTMLDivElement>;
 
-  constructor(private readonly _chatService: ChatService) {
-    // TODO:
-    this._chatService.postMessage(
-      'Nazywam się Maciek i interesuję się programowaniem. Chciałbym studiować coś związanego z IT.',
-    );
-  }
+  constructor(private readonly _chatService: ChatService) {}
 
   public ngAfterViewChecked(): void {
     this._scrollToBottom();
