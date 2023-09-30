@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './survey.component.html',
   styleUrls: ['./survey.component.scss'],
 })
-export class SurveyComponent {}
+export class SurveyComponent {
+  public stepNumber: number = 1;
+}

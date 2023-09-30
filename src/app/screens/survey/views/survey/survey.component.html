@@ -1,1 +1,4 @@
-<p>survey works!</p>
+<ng-container [ngSwitch]="stepNumber">
+  <rtm-step1 *ngSwitchCase="1" />
+  <rtm-step2 *ngSwitchCase="2" />
+</ng-container>

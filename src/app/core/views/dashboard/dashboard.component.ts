@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  public appState: 'initial' | 'survey' | 'board' = 'initial';
+  public appState: 'initial' | 'survey' | 'board' = 'survey';
 
   public gotToSurvey(): void {
     this.appState = 'survey';
