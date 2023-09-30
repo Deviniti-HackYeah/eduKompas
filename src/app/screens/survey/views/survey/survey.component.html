@@ -1,4 +1,4 @@
 <ng-container [ngSwitch]="stepNumber">
-  <rtm-step1 *ngSwitchCase="1" />
+  <rtm-step1 *ngSwitchCase="1" (goToNextStep)="goToNextStep()" />
   <rtm-step2 *ngSwitchCase="2" />
 </ng-container>

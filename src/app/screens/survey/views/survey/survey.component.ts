@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./survey.component.scss'],
 })
 export class SurveyComponent {
-  public stepNumber: number = 1;
+  public stepNumber: number = 2;
+
+  public goToNextStep(): void {
+    this.stepNumber++;
+  }
 }
