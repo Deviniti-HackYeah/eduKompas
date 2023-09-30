@@ -46,7 +46,12 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/assets"],
-            "styles": ["src/styles.scss", "node_modules/ngx-toastr/toastr.css"],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "src/app/styles/theme.css"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/app/styles"]
             },

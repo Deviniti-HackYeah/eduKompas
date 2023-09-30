@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'primeicons/primeicons.css';
 @import 'responsive';
 
 $application_scale_sm: 0.95rem;
@@ -14,15 +15,15 @@ body {
   margin: 0;
 }
 
-* {
-  font-size: $application_scale_sm;
-  @include responsive(md) {
-    font-size: $application_scale_md;
-  }
-  @include responsive(2xl) {
-    font-size: $application_scale_2xl;
-  }
-}
+// * {
+//   font-size: $application_scale_sm;
+//   @include responsive(md) {
+//     font-size: $application_scale_md;
+//   }
+//   @include responsive(2xl) {
+//     font-size: $application_scale_2xl;
+//   }
+// }
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -37,5 +38,5 @@ body {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
-	background-color: #4d4d4d;
+  background-color: #4d4d4d;
 }
