@@ -1,7 +1,7 @@
 <div class="flex items-center gap-3">
   <!-- eslint-disable-next-line tailwindcss/no-custom-classname -->
   <i class="pi pi-check-circle text-xl text-green-600" *ngIf="completed"></i>
-  <p class="text-lg font-bold text-gray-700">{{ title }}</p>
+  <p class="font-medium text-gray-700">{{ title }}</p>
 </div>
 
 <div class="mt-7" *ngIf="!completed">
@@ -9,7 +9,7 @@
 
   <rtm-slider (valueChange)="valueChange.emit($event)" />
 
-  <div class="flex justify-between font-light">
+  <div class="flex justify-between text-sm font-light">
     <p>Zdecydowanie nie</p>
     <p>Zdecydowanie tak</p>
   </div>

@@ -4,7 +4,7 @@
     (ngSubmit)="onSubmit()"
     [formGroup]="step1Form"
   >
-    <h2 class="mb-4 text-2xl font-medium">Cześć!</h2>
+    <h2 class="mb-4 text-2xl font-medium text-gray-700">Cześć!</h2>
     <p class="mb-4 font-light">
       Mam na imię EduKasia. Dziękuję, że postanowiłeś wziąć udział w naszych
       konsultacjach. Dzięki temu postaramy się pomóc Ci w wyborze wymarzonej
@@ -19,7 +19,7 @@
       </span>
     </p>
 
-    <h4 class="mb-3 font-medium">Kim jesteś?</h4>
+    <h4 class="mb-3 font-medium text-gray-700">Kim jesteś?</h4>
 
     <div class="mb-5 flex flex-wrap gap-3">
       <div class="flex items-center" *ngFor="let type of USER_TYPE">
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <h4 class="mb-3 font-medium">Wykształcenie</h4>
+    <h4 class="mb-3 font-medium text-gray-700">Wykształcenie</h4>
 
     <p-dropdown
       formControlName="educationType"
@@ -45,7 +45,7 @@
       optionValue="value"
     ></p-dropdown>
 
-    <h4 class="mb-3 font-medium">Miasto</h4>
+    <h4 class="mb-3 font-medium text-gray-700">Miasto</h4>
 
     <input
       placeholder="Wpisz miasto"

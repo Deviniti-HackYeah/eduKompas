@@ -2,6 +2,7 @@ import { SliderOptionComponent } from './components/slider-option/slider-option.
 import { SliderComponent } from './components/slider/slider.component';
 import { Step1Component } from './containers/step1/step1.component';
 import { Step2Component } from './containers/step2/step2.component';
+import { Step3Component } from './containers/step3/step3.component';
 import { SurveyComponent } from './views/survey/survey.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { SharedModule } from '@shared/shared.module';
@@ -13,7 +14,14 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { NgModule } from '@angular/core';
 
-const COMPONENTS = [SurveyComponent, Step1Component, Step2Component];
+const COMPONENTS = [
+  SliderOptionComponent,
+  SliderComponent,
+  SurveyComponent,
+  Step1Component,
+  Step2Component,
+  Step3Component,
+];
 
 @NgModule({
   imports: [
@@ -26,7 +34,7 @@ const COMPONENTS = [SurveyComponent, Step1Component, Step2Component];
     CommonModule,
     ButtonModule,
   ],
-  declarations: [...COMPONENTS, SliderComponent, SliderOptionComponent],
+  declarations: [...COMPONENTS],
   exports: [...COMPONENTS],
 })
 export class SurveyModule {}
