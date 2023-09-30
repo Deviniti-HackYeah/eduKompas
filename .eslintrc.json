@@ -1,0 +1,53 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.json"],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:tailwindcss/recommended"
+      ],
+      "plugins": ["prettier"],
+      "rules": {
+        "@angular-eslint/no-empty-lifecycle-method": ["warn"],
+
+        "@typescript-eslint/explicit-function-return-type": ["warn"],
+        "@typescript-eslint/no-non-null-assertion": ["off"],
+        "@typescript-eslint/no-inferrable-types": ["off"],
+        "@typescript-eslint/no-empty-function": ["off"],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "warn",
+          {
+            "overrides": {
+              "constructors": "no-public"
+            }
+          }
+        ],
+
+        "spaced-comment": ["error", "always", { "exceptions": ["*"] }],
+        "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
+        "quotes": ["warn", "single"],
+        "no-trailing-spaces": "warn",
+        "prettier/prettier": "warn",
+        "prefer-const": "warn",
+        "no-eq-null": "warn",
+        "eqeqeq": "warn",
+        "no-var": "warn"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:tailwindcss/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}
