@@ -27,10 +27,10 @@ export class MessageComponent {
 
   public get bubbleAvatar(): string {
     return this.type === 'USER'
-      ? 'assets/images/user.png'
+      ? 'assets/avatars/user.png'
       : this.type === 'KARA'
-      ? 'assets/images/kara.png'
-      : 'assets/images/kajtek.png';
+      ? 'assets/avatars/kara.png'
+      : 'assets/avatars/kajtek.png';
   }
 
   @HostBinding('class') public get classes(): string {
