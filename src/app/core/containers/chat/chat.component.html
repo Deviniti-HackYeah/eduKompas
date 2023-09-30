@@ -1,0 +1,14 @@
+<div class="h-full overflow-auto my-2">
+  <!-- XD -->
+  <ng-container *ngFor="let e of [].constructor(10)">
+    <rtm-message direction="left" message="Hey" type="KAJTEK" />
+    <rtm-message direction="left" message="Hey" type="KARA" />
+    <rtm-message direction="right" message="Hey" type="USER" />
+    <rtm-message direction="left" message="Hey" type="KARA" />
+  </ng-container>
+  <!-- XD -->
+</div>
+<div class="flex gap-4 align-middle">
+  <input rtmInput class="w-full" />
+  <button rtmButton [size]="'icon'">SEND</button>
+</div>

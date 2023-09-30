@@ -7,14 +7,6 @@ const REPOSITORIES = [DashboardRepository];
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
-  providers: [
-    ...REPOSITORIES,
-
-    // {
-    //   useClass: LoaderInterceptor,
-    //   provide: HTTP_INTERCEPTORS,
-    //   multi: true,
-    // },
-  ],
+  providers: [...REPOSITORIES],
 })
 export class ApiModule {}

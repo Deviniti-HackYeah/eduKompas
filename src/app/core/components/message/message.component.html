@@ -1,0 +1,12 @@
+<div
+  class="flex w-1/2 items-center gap-2"
+  [class.flex-row-reverse]="direction === 'right'"
+>
+  <p class="flex items-center justify-center">AV</p>
+  <div
+    [ngClass]="direction === 'left' ? 'text-left' : 'text-right'"
+    class="w-full rounded-full bg-gray-200 px-4 py-3"
+  >
+    {{ message }}
+  </div>
+</div>

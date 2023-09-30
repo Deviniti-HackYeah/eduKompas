@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
 import { ApiModule } from '@api/api.module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgModule } from '@angular/core';

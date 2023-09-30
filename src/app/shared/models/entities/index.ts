@@ -1,1 +1,1 @@
-export * from './dashboard.interface';
+export * from './chat.interface';
