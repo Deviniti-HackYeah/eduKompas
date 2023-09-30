@@ -20,7 +20,7 @@ const MOCK: ChatResponse = {
 };
 
 @Injectable()
-export class DashboardRepository {
+export class ChatRepository {
   constructor(private readonly _http: HttpClient) {}
 
   // export interface Chat {

@@ -1,4 +1,4 @@
-import { Bot } from '../bot.type';
+import { Author } from '../author.type';
 
 export interface Chat {
   chats: ChatMessage[];
@@ -6,7 +6,7 @@ export interface Chat {
 }
 
 export interface ChatMessage {
-  bot: Bot;
+  bot: Author;
   message: string;
   date: Date;
 }

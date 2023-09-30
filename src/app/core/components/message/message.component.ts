@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { Bot } from '@shared/models';
+import { Author } from '@shared/models';
 
 @Component({
   selector: 'rtm-message',
@@ -8,8 +8,11 @@ import { Bot } from '@shared/models';
 })
 export class MessageComponent {
   @Input() public message?: string;
-  @Input() public direction?: 'left' | 'right' = 'right';
-  @Input() public type?: Bot | 'USER' = 'USER';
+  @Input() public type?: Author = 'USER';
+
+  public get direction(): 'left' | 'right' {
+    return this.type === 'USER' ? 'right' : 'left';
+  }
 
   public get bubbleBgColor(): string {
     return this.type === 'USER'

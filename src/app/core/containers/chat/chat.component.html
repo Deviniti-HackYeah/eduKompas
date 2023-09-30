@@ -1,18 +1,20 @@
 <div class="my-2 h-full overflow-auto pr-2">
   <!-- XD -->
-  <ng-container *ngFor="let e of [].constructor(10)">
-    <rtm-message direction="left" message="Hey" type="KAJTEK" />
-    <rtm-message direction="left" message="Hey" type="KARA" />
-    <rtm-message direction="right" message="Hey" type="USER" />
-    <rtm-message
-      direction="left"
-      message="Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum "
-      type="KARA"
-    />
-  </ng-container>
+  <rtm-message message="Hey" type="KAJTEK" />
+  <rtm-message message="Hey" type="KARA" />
+  <rtm-message message="Hey" type="USER" />
+  <rtm-message
+    message="Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum Hey Lorem ipsum "
+    type="KARA"
+  />
+  <rtm-message
+    *ngFor="let m of messages()"
+    [message]="m.message"
+    [type]="m.bot"
+  />
   <!-- XD -->
 </div>
 <div class="flex gap-4 align-middle">
-  <input rtmInput class="w-full" />
-  <button rtmButton [size]="'icon'">SEND</button>
+  <input rtmInput class="w-full" [formControl]="input" />
+  <button rtmButton [size]="'icon'" (click)="sendMessage()">SEND</button>
 </div>
