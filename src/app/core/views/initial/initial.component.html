@@ -1,0 +1,22 @@
+<div class="flex h-full w-full gap-16">
+  <div class="flex h-full w-1/2 flex-col justify-end">
+    <img src="/assets/ludzie.png" />
+  </div>
+
+  <div class="flex h-full w-1/2 flex-col justify-center">
+    <div class="flex flex-col gap-24">
+      <p class="text-5xl text-white">
+        Poznaj edu<span class="text-5xl text-red-500">Kasię</span>
+        i edu<span class="text-5xl text-red-500">Kajtka</span>,
+        naszych doradców edukacyjnych.
+      </p>
+
+      <button
+        class="w-2/3 rounded-lg border-2 border-white p-5 text-lg font-bold text-white"
+        (click)="goToSurvey.emit()"
+      >
+        Rozpocznij konsultacje
+      </button>
+    </div>
+  </div>
+</div>

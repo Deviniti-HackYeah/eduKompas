@@ -1,9 +1,9 @@
 import {
   AfterViewChecked,
   HostBinding,
+  ElementRef,
   Component,
   ViewChild,
-  ElementRef,
 } from '@angular/core';
 import { ChatService } from '@core/services/chat.service';
 import { FormControl, FormGroup } from '@angular/forms';

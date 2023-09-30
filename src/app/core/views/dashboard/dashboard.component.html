@@ -1,2 +1,5 @@
-<rtm-initial [hidden]="appState !== 'initial'" />
-<rtm-board [hidden]="appState !== 'board'" />
+<ng-container [ngSwitch]="appState">
+  <rtm-initial *ngSwitchCase="'initial'" (goToSurvey)="goToBoard()" />
+  <rtm-survey *ngSwitchCase="'survey'" />
+  <rtm-board *ngSwitchCase="'board'" />
+</ng-container>

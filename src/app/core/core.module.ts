@@ -1,6 +1,6 @@
-import { InitialComponent } from './containers/initial/initial.component';
+import { InitialComponent } from './views/initial/initial.component';
 import { MessageComponent } from './components/message/message.component';
-import { BoardComponent } from './containers/board/board.component';
+import { BoardComponent } from './views/board/board.component';
 import { GraphComponent } from './containers/graph/graph.component';
 import { ChatComponent } from './containers/chat/chat.component';
 import { SharedModule } from '@shared/shared.module';
@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './views';
 import { NgModule } from '@angular/core';
+import { SurveyComponent } from './views/survey/survey.component';
 
 const COMPONENTS = [DashboardComponent];
 
@@ -20,6 +21,7 @@ const COMPONENTS = [DashboardComponent];
     BoardComponent,
     GraphComponent,
     ChatComponent,
+    SurveyComponent,
   ],
 })
 export class CoreModule {}
