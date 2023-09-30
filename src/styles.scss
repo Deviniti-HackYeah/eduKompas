@@ -5,25 +5,11 @@
 @import 'primeicons/primeicons.css';
 @import 'responsive';
 
-$application_scale_sm: 0.95rem;
-$application_scale_md: 0.9rem;
-$application_scale_2xl: 1rem;
-
 html,
 body {
   padding: 0;
   margin: 0;
 }
-
-// * {
-//   font-size: $application_scale_sm;
-//   @include responsive(md) {
-//     font-size: $application_scale_md;
-//   }
-//   @include responsive(2xl) {
-//     font-size: $application_scale_2xl;
-//   }
-// }
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
