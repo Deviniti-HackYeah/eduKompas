@@ -1,6 +1,7 @@
+<!-- prettier-ignore -->
 <div class="flex h-full w-full gap-16">
-  <div class="flex h-full w-1/2 flex-col justify-end">
-    <img src="/assets/ludzie.png" />
+  <div class="relative h-full w-1/2">
+    <img class="absolute bottom-0" src="/assets/ludzie.png" />
   </div>
 
   <div class="flex h-full w-1/2 flex-col justify-center">
@@ -12,7 +13,7 @@
       </p>
 
       <button
-        class="w-2/3 rounded-lg border-2 border-white p-5 text-lg font-bold text-white"
+        class="w-2/3 rounded-lg border-2 border-white p-5 text-lg font-bold text-white hover:bg-white/10"
         (click)="goToSurvey.emit()"
       >
         Rozpocznij konsultacje

@@ -1,4 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
+import { SPEECH_SPEED } from '@core/constant';
 import { Author } from '@shared/models';
 
 @Component({
@@ -7,6 +8,8 @@ import { Author } from '@shared/models';
   styleUrls: ['./message.component.scss'],
 })
 export class MessageComponent {
+  public readonly TEXT_SPEED = SPEECH_SPEED;
+
   @Input() public message?: string;
   @Input() public type?: Author = 'USER';
 

@@ -1,5 +1,6 @@
 import { ChatRepository } from '@api/chat/chat.repository';
 import { Injectable, signal } from '@angular/core';
+import { SPEECH_SPEED } from '@core/constant';
 import { ChatMessage } from '@shared/models';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -32,11 +33,14 @@ export class ChatService {
   private _updateChatMessages(messages: ChatMessage[] | ChatMessage): void {
     if (Array.isArray(messages)) {
       messages.forEach((message, index) => {
-        setTimeout(() => {
-          this.chat.update((chats) => {
-            return [...chats, message];
-          });
-        }, index * 2500);
+        setTimeout(
+          () => {
+            this.chat.update((chats) => {
+              return [...chats, message];
+            });
+          },
+          index * message.message.length * SPEECH_SPEED,
+        );
       });
       return;
     }

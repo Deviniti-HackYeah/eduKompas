@@ -12,6 +12,7 @@ import {
 })
 export class TypewriteDirective implements OnInit, OnDestroy {
   private interval?: ReturnType<typeof setTimeout>;
+  @Input() public delay: number = 100;
   @Input() public text: string = '';
   private currentIndex: number = 0;
 
@@ -34,7 +35,7 @@ export class TypewriteDirective implements OnInit, OnDestroy {
         } else {
           this.clearInterval();
         }
-      }, 30);
+      }, this.delay);
     }
   }
 
