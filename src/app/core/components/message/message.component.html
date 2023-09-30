@@ -1,11 +1,11 @@
 <div
-  class="flex w-1/2 items-center gap-2"
+  class="flex w-3/4 gap-2"
   [class.flex-row-reverse]="direction === 'right'"
 >
-  <p class="flex items-center justify-center">AV</p>
+  <img [src]="bubbleAvatar" class="h-12"/>
   <div
-    [ngClass]="direction === 'left' ? 'text-left' : 'text-right'"
-    class="w-full rounded-full bg-gray-200 px-4 py-3"
+    [ngClass]="direction === 'left' ? 'text-left ml-3 msg-l' : 'text-right mr-3 msg-r'"
+    [class]="'message w-full rounded-2xl bg-gray-200 px-4 py-3 ' + bubbleBgColor"
   >
     {{ message }}
   </div>

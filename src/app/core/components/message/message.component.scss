@@ -1,0 +1,24 @@
+.message {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+
+    top: 1rem;
+
+    border: 0.5rem solid transparent;
+  }
+}
+
+.msg-l::before {
+  border-right-color: inherit;
+  left: -14px;
+}
+
+.msg-r::before {
+  border-left-color: inherit;
+  right: -14px;
+}
