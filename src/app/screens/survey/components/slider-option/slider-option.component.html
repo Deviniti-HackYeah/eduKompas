@@ -5,7 +5,7 @@
 </div>
 
 <div class="mt-7" *ngIf="!completed">
-  <div class="mb-2 flex justify-center text-xs font-light">Przeciągnij</div>
+  <div class="flex justify-center text-xs font-light">Przeciągnij</div>
 
   <rtm-slider (valueChange)="valueChange.emit($event)" />
 
