@@ -34,7 +34,7 @@ export class Step1Component {
     if (!this.step1Form.valid) {
       return;
     }
-    const formData = this.step1Form.value as unknown as Survey;
+    const formData = this.step1Form.value as unknown as Partial<Survey>;
     this._dataService.surveyData.update((data: Partial<Survey>) => {
       return { ...data, ...formData };
     });

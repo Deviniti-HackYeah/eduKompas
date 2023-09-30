@@ -18,3 +18,12 @@ export const EducationType = [
 ] as const;
 
 export type EducationType = (typeof EducationType)[number];
+
+export const GreatestSatisfaction = [
+  'Kontakt z innymi ludźmi: długie rozmowy, wymiana doświadczeń i opinii, wspólna zabawa',
+  'Analizowanie danych, wyciąganie wniosków i tworzenie ciekawych rozwiązań',
+  'Zajęcia kreatywne: rysowanie, malowanie, komponowanie',
+  'Poznawanie innych kultur, oglądanie filmów w różnych językach',
+];
+
+export type GreatestSatisfaction = (typeof GreatestSatisfaction)[number];

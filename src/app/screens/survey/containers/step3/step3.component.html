@@ -3,10 +3,45 @@
     <img class="absolute bottom-0" src="/assets/kajtek.png" />
   </div>
 
-  <div class="w-3/5 rounded-2xl bg-white p-8 shadow-2xl">
-    <h2 class="mb-4 text-2xl font-medium">Witaj!</h2>
-    <p class="mb-4 font-light">
+  <form
+    class="w-3/5 rounded-2xl bg-white p-8 shadow-2xl"
+    [formGroup]="step3Form"
+    (ngSubmit)="onSubmit()"
+  >
+    <h2 class="mb-4 text-2xl font-medium text-gray-700">Witaj!</h2>
+    <p class="mb-8 font-light">
       Ja jestem EduKajtek. Potrzebuję od Ciebie kilku informacji. Pomożesz mi?
     </p>
-  </div>
+
+    <h4 class="mb-5 font-medium text-gray-700">
+      Co sprawia Ci największą satysfakcję?
+    </h4>
+
+    <div class="mb-10 flex flex-col gap-5">
+      <div
+        class="flex items-center"
+        *ngFor="let satisfaction of GREATEST_SATISFACTION"
+      >
+        <p-radioButton
+          formControlName="greatestSatisfaction"
+          [inputId]="satisfaction"
+          [value]="satisfaction"
+        ></p-radioButton>
+        <label [for]="satisfaction" class="ml-2 cursor-pointer font-light">
+          {{ satisfaction }}
+        </label>
+      </div>
+    </div>
+
+    <p-button
+      [disabled]="!step3Form.valid"
+      (onClick)="onSubmit()"
+      label="Następny krok"
+      styleClass="w-1/2"
+      [style]="{
+        background: 'linear-gradient(91deg, #001234 1.22%, #0048D2 100%)',
+        border: 'none'
+      }"
+    />
+  </form>
 </div>

@@ -1,8 +1,12 @@
 <ng-container [ngSwitch]="surveyNumber">
-  <rtm-step1 *ngSwitchCase="1" (goToNextStep)="goToNextSurvey()" />
+  <rtm-step1 *ngSwitchCase="0" (goToNextStep)="goToNextSurvey()" />
   <rtm-step2
-    *ngSwitchCase="2"
+    *ngSwitchCase="1"
     (goToNextStep)="goToNextSurvey()"
     (goToChat)="goToBoard.emit()"
   />
+  <rtm-step3
+  *ngSwitchCase="2"
+  (goToChat)="goToBoard.emit()"
+/>
 </ng-container>
