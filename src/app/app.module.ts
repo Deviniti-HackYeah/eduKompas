@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from '@shared/shared.module';
-import { CoreModule } from './core/core.module';
+import { CoreModule } from '@core/core.module';
 import { AppComponent } from './app.component';
 import { ApiModule } from '@api/api.module';
 import { ToastrModule } from 'ngx-toastr';
