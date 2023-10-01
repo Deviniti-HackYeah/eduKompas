@@ -1,6 +1,6 @@
 export const environment = {
   app_url: '/',
-  api: 'https://version-vault.com:3999',
+  api: 'https://65.21.6.112:3999',
   production: false,
   build: 'dev',
 };
