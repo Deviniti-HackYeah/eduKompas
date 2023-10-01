@@ -1,5 +1,5 @@
+import { Component, HostBinding, effect } from '@angular/core';
 import { ChatService } from '@core/services/chat.service';
-import { Component, effect } from '@angular/core';
 import { ChatExtras } from '@shared/models';
 import { EChartsOption } from 'echarts';
 
@@ -19,6 +19,10 @@ type Node = {
 })
 export class GraphComponent {
   public options: EChartsOption = {};
+
+  @HostBinding('class') public get classes(): string {
+    return 'flex h-full flex-col';
+  }
 
   constructor(private readonly _chatService: ChatService) {
     effect(() => {

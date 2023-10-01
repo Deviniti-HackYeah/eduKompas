@@ -7,6 +7,6 @@ import { Component, HostBinding } from '@angular/core';
 })
 export class BoardComponent {
   @HostBinding('class') public get classes(): string {
-    return 'flex h-full gap-8 p-14';
+    return 'max-w-screen-2xl block mx-auto h-full py-14';
   }
 }
