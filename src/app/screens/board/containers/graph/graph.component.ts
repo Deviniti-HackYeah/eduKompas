@@ -23,7 +23,7 @@ export class GraphComponent {
 
   @HostBinding('class') public get classes(): string {
     return !!this.data()
-      ? 'flex h-full flex-col'
+      ? 'flex h-full flex-col relative'
       : 'flex h-full flex-col justify-center items-center';
   }
 
