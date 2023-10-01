@@ -22,6 +22,12 @@
     type="text"
   />
   <p-button
+    styleClass="p-button-danger"
+    (onClick)="sendMessage()"
+    icon="pi pi-microphone"
+    type="button"
+  ></p-button>
+  <p-button
     [style]="{ background: '#0331A6' }"
     icon="pi pi-send"
     type="submit"

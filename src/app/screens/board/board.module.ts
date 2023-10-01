@@ -1,3 +1,4 @@
+import { EndMessageComponent } from './components/end-message/end-message.component';
 import { MessageComponent } from './components/message/message.component';
 import { GraphComponent } from './containers/graph/graph.component';
 import { ChatComponent } from './containers/chat/chat.component';
@@ -8,8 +9,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CommonModule } from '@angular/common';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { ButtonModule } from 'primeng/button';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 import { NgModule } from '@angular/core';
-import { EndMessageComponent } from './components/end-message/end-message.component';
 
 const COMPONENTS = [
   MessageComponent,
@@ -28,8 +30,10 @@ const COMPONENTS = [
     SharedModule,
     CommonModule,
     ButtonModule,
+    ToastModule,
   ],
   declarations: [...COMPONENTS, EndMessageComponent],
+  providers: [MessageService],
   exports: [...COMPONENTS],
 })
 export class BoardModule {}

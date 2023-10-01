@@ -27,7 +27,7 @@ export class ChatComponent implements AfterViewChecked, OnInit {
   }
 
   public ngOnInit(): void {
-    this.chatForm.valueChanges.pipe(debounceTime(30000)).subscribe(() => {
+    this.chatForm.valueChanges.pipe(debounceTime(45000)).subscribe(() => {
       this.isInactive = true;
     });
   }
