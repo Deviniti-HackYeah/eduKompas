@@ -5,10 +5,12 @@ import {
   Component,
   ViewChild,
   OnInit,
+  DestroyRef,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ChatService } from '@core/services/chat.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { debounceTime } from 'rxjs';
+import { debounceTime, tap } from 'rxjs';
 
 @Component({
   selector: 'rtm-chat',
@@ -20,16 +22,27 @@ export class ChatComponent implements AfterViewChecked, OnInit {
 
   public isInactive = false;
 
-  constructor(private readonly _chatService: ChatService) {}
+  constructor(
+    private readonly _chatService: ChatService,
+    private readonly _destroyRef: DestroyRef,
+  ) {}
 
   public ngAfterViewChecked(): void {
     this._scrollToBottom();
   }
 
   public ngOnInit(): void {
-    this.chatForm.valueChanges.pipe(debounceTime(45000)).subscribe(() => {
-      this.isInactive = true;
-    });
+    this.chatForm.valueChanges
+      .pipe(
+        takeUntilDestroyed(this._destroyRef),
+        tap(() => {
+          this.setNotInactive();
+        }),
+        debounceTime(45000),
+      )
+      .subscribe(() => {
+        this.isInactive = true;
+      });
   }
 
   public chatForm = new FormGroup({
