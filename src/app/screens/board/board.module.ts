@@ -6,6 +6,7 @@ import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { CommonModule } from '@angular/common';
+import { NgxEchartsModule } from 'ngx-echarts';
 import { ButtonModule } from 'primeng/button';
 import { NgModule } from '@angular/core';
 
@@ -18,6 +19,9 @@ const COMPONENTS = [
 
 @NgModule({
   imports: [
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
     ReactiveFormsModule,
     InputTextModule,
     SharedModule,

@@ -1,6 +1,6 @@
 import { SurveyRepository } from '@api/survey/survey.repository';
+import { ChatExtras, ChatMessage, Survey } from '@shared/models';
 import { ChatRepository } from '@api/chat/chat.repository';
-import { ChatMessage, Survey } from '@shared/models';
 import { mockedAnswerBySurvey } from '@shared/utils';
 import { Injectable, signal } from '@angular/core';
 import { SPEECH_SPEED } from '@core/constant';
@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
   providedIn: 'root',
 })
 export class ChatService {
+  public readonly extras = signal<Partial<ChatExtras> | undefined>(undefined);
   public readonly surveyData = signal<Partial<Survey>>({});
   public readonly isLoading = signal<boolean>(false);
   public readonly chat = signal<ChatMessage[]>([]);
@@ -47,6 +48,7 @@ export class ChatService {
       .subscribe({
         next: (response) => {
           this._updateChatMessages(response.chats);
+          this.extras.update(() => response.extras);
           this.isLoading.update(() => false);
         },
         error: () => {
@@ -67,6 +69,7 @@ export class ChatService {
       .subscribe({
         next: (response) => {
           this._updateChatMessages(response.chats);
+          this.extras.update(() => response.extras);
           this.isLoading.update(() => false);
         },
         error: () => {
