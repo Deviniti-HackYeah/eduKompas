@@ -1,0 +1,53 @@
+<rtm-message type="KAJTEK" *ngIf="isInactive">
+  <span
+    text="Czy masz do mnie jeszcze jakieś pytania?"
+    [delay]="TEXT_SPEED"
+    rtmTypewrite
+  ></span>
+  <div class="mt-3 flex justify-end gap-6">
+    <p-button
+      styleClass="p-button-sm p-button-link"
+      (onClick)="notInactive.emit()"
+      [style]="{ padding: 0 }"
+      label="Tak"
+    />
+    <p-button
+      styleClass="p-button-sm p-button-link"
+      [style]="{ padding: 0 }"
+      (onClick)="setEnding()"
+      label="Nie"
+    />
+  </div>
+</rtm-message>
+
+<rtm-message type="KAJTEK" *ngIf="isEndingKajtek">
+  <span
+    text="Swietnie! W taki wypadku przygotuję Twoj EduKompas - raport podsumowujący naszą rozmowę wraz z propozycją kolejnych kroków"
+    [delay]="TEXT_SPEED"
+    rtmTypewrite
+  ></span>
+  <div class="mt-3 flex justify-end gap-6">
+    <p-button
+      styleClass="p-button-sm p-button-link"
+      [style]="{ padding: 0 }"
+      (onClick)="getReport()"
+      label="Pobierz raport"
+    />
+  </div>
+</rtm-message>
+
+<rtm-message type="KARA" *ngIf="isEndingKara">
+  <span
+    text="Jeśli to już wszystko na dziś, oceń proszę nasze wparcie i pamiętaj, że polecamy się na przyszłość!"
+    [delay]="TEXT_SPEED"
+    rtmTypewrite
+  ></span>
+  <div class="mt-3 flex gap-3">
+    <p-button
+      styleClass="p-button-sm p-button-outlined p-button-warning"
+      *ngFor="let nbr of [].constructor(5); let i = index"
+      [style]="{ padding: '10px', width: '44px' }"
+      [label]="i + 1 + ''"
+    />
+  </div>
+</rtm-message>

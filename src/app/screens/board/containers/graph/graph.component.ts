@@ -19,9 +19,12 @@ type Node = {
 })
 export class GraphComponent {
   public options: EChartsOption = {};
+  public readonly data = this._chatService.extras;
 
   @HostBinding('class') public get classes(): string {
-    return 'flex h-full flex-col';
+    return !!this.data()
+      ? 'flex h-full flex-col'
+      : 'flex h-full flex-col justify-center items-center';
   }
 
   constructor(private readonly _chatService: ChatService) {

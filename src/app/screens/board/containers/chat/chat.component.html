@@ -4,6 +4,7 @@
     [message]="m.message"
     [type]="m.bot"
   />
+  <rtm-end-message [isInactive]="isInactive" (notInactive)="setNotInactive()" />
   <div class="mx-auto my-2 block" *ngIf="isLoading()">
     <rtm-spinner />
   </div>
@@ -14,7 +15,7 @@
   [formGroup]="chatForm"
 >
   <input
-    placeholder="Wpisz treść wiadomości"
+    placeholder="Wpisz treść wiadomości"
     formControlName="input"
     class="w-full"
     pInputText

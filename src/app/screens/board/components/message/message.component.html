@@ -7,7 +7,13 @@
       bubbleColors
     "
   >
-    <span rtmTypewrite [text]="message || ''" [delay]="TEXT_SPEED"></span>
+    <span
+      [text]="message || ''"
+      [delay]="TEXT_SPEED"
+      *ngIf="message"
+      rtmTypewrite
+    ></span>
+    <ng-content />
     <div
       [class]="'absolute h-3 w-3 border-r-2 border-t-2 ' + bubbleColors"
       [ngClass]="direction === 'left' ? 'msg-l' : 'msg-r'"

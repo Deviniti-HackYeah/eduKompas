@@ -4,22 +4,32 @@ import {
   ElementRef,
   Component,
   ViewChild,
+  OnInit,
 } from '@angular/core';
 import { ChatService } from '@core/services/chat.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'rtm-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss'],
 })
-export class ChatComponent implements AfterViewChecked {
+export class ChatComponent implements AfterViewChecked, OnInit {
   @ViewChild('window') public chatWindow?: ElementRef<HTMLDivElement>;
+
+  public isInactive = false;
 
   constructor(private readonly _chatService: ChatService) {}
 
   public ngAfterViewChecked(): void {
     this._scrollToBottom();
+  }
+
+  public ngOnInit(): void {
+    this.chatForm.valueChanges.pipe(debounceTime(30000)).subscribe(() => {
+      this.isInactive = true;
+    });
   }
 
   public chatForm = new FormGroup({
@@ -38,6 +48,10 @@ export class ChatComponent implements AfterViewChecked {
     if (!value) return;
     this._chatService.postMessage(value);
     this.chatForm.reset();
+  }
+
+  public setNotInactive(): void {
+    this.isInactive = false;
   }
 
   private _scrollToBottom(): void {

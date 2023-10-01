@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { ButtonModule } from 'primeng/button';
 import { NgModule } from '@angular/core';
+import { EndMessageComponent } from './components/end-message/end-message.component';
 
 const COMPONENTS = [
   MessageComponent,
@@ -28,7 +29,7 @@ const COMPONENTS = [
     CommonModule,
     ButtonModule,
   ],
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, EndMessageComponent],
   exports: [...COMPONENTS],
 })
 export class BoardModule {}
